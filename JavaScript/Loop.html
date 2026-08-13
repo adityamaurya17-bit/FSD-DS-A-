@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        //code for (FOR loop)
+        // for(let i = 0; i <= 10; i++) {
+        //     document.write("<br> abes college");
+        // }
+
+        // const Car = ["car1", "car2", "car3"];
+        // let text = " ";
+        // let len = Car.length;
+        // for (let i = 0; i < len; i++) {
+        //     text += Car[i] + "<br>";
+        // }
+        // document.getElementById("demo").innerHTML = text;
+        // console.log(typeof Car);
+
+        const Car = ["car1", "car2", "car3"];
+        let text = " ";
+        let len = Car.length;
+        for (let i = 0; i < len; i=i+2) {
+            text += Car[i] + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+        console.log(typeof Car);
+    </script>
+</body>
+</html>

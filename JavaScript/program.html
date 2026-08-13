@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong Number</title>
+</head>
+<body>
+    <script>
+
+        // Take input from user
+        let num = prompt("Enter a number:");
+
+        // Convert input to integer
+        num = parseInt(num);
+
+        // Store original number
+        let originalNum = num;
+
+        // Find number of digits
+        let digits = num.toString().length;
+
+        // Calculate sum of digits raised to power of digits
+        let sum = 0;
+        while (num > 0) {
+        let digit = num % 10;
+        sum += Math.pow(digit, digits);
+        num = Math.floor(num / 10);
+        }
+
+        // Check Armstrong condition
+        if (sum === originalNum) {
+            alert(originalNum + " is an Armstrong number.");
+        } else {
+            alert(originalNum + " is NOT an Armstrong number.");
+        }
+        
+    </script>
+</body>
+</html>
