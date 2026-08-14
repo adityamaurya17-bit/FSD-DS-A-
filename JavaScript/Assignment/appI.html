@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vehicle Booking</title>
+</head>
+    <body>
+        <script>
+            const vehicles = {
+                car: [
+                { name: "Sedan", price: 2000 },
+                { name: "SUV",   price: 3000 }
+            ],
+                plane: [
+                { name: "Economy", price: 5000 },
+                { name: "Business", price: 10000 }
+            ],
+                yacht: [
+                { name: "Mini Yacht",   price: 8000 },
+                { name: "Luxury Yacht", price: 15000 }
+            ]
+            };
+
+            function calculateTotal(vehicle, optionIndex, seats) {
+            const option = vehicles[vehicle][optionIndex];
+            return `You booked ${seats} seat(s) in ${option.name} (${vehicle}). Total: ₹${option.price * seats}`;
+            }
+
+            // Example usage
+            document.write(calculateTotal("car",   0, 12) + "<br>");
+            document.write(calculateTotal("plane", 1, 25) + "<br>");
+            document.write(calculateTotal("yacht", 0,  7));
+        </script>
+    </body>
+</html>
