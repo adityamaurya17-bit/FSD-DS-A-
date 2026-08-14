@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>BuyBoard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 280px;
+      padding: 15px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .card h3 { margin: 0 0 10px; color: #333; }
+    .card p { margin: 6px 0; }
+    .highlight { font-weight: bold; color: #007bff; }
+  </style>
+</head>
+<body>
+  <div id="output"></div>
+
+  <script>
+    const Product = {
+      Gadgets: [
+        { name: "Smartphone", price: 15000 },
+        { name: "Laptop", price: 55000 }
+      ],
+      Apparel: [
+        { name: "T-Shirt", price: 500 },
+        { name: "Jeans", price: 1200 }
+      ],
+      Stationery: [
+        { name: "Notebook", price: 80 },
+        { name: "Pen Pack", price: 150 }
+      ]
+    };
+
+    // Normalize keys for case-insensitive lookup
+    const categories = Object.keys(Product);
+
+    // Prompt with valid categories
+    let categoryInput = prompt("Choose a category: " + categories.join(", "));
+    let category = categories.find(c => c.toLowerCase() === categoryInput?.toLowerCase());
+
+    if (category) {
+      // Prompt with valid products in chosen category
+      let productOptions = Product[category].map(p => p.name).join(", ");
+      let productInput = prompt("Choose a product from " + category + ": " + productOptions);
+      let qty = parseInt(prompt("Enter quantity:"));
+
+      // Case-insensitive product match
+      let selected = Product[category].find(
+        p => p.name.toLowerCase() === productInput?.toLowerCase()
+      );
+
+      if (selected && qty > 0) {
+        let total = selected.price * qty;
+        document.getElementById("output").innerHTML = `
+          <div class="card">
+            <h3>Order Summary</h3>
+            <p><b>Product:</b> ${selected.name}</p>
+            <p><b>Category:</b> ${category}</p>
+            <p><b>Items:</b> ${qty}</p>
+            <p class="highlight">Total Amount: ₹${total}</p>
+          </div>
+        `;
+      } else {
+        document.getElementById("output").innerHTML = `
+          <div class="card">
+            <h3>Invalid Selection</h3>
+            <p>Please refresh and try again.</p>
+          </div>
+        `;
+      }
+    } else {
+      document.getElementById("output").innerHTML = `
+        <div class="card">
+          <h3>Invalid Category</h3>
+          <p>Please refresh and try again.</p>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
