@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dataset Operations</title>
+</head>
+<body>
+  <script>
+    const students = [
+      { name: "Aditya", education: "B.Tech", age: 21, place: "Delhi", blood_group: "AB+" },
+      { name: "Ankit", education: "M.Tech", age: 25, place: "Ghaziabad", blood_group: "A+" },
+      { name: "Ravi", education: "12th", age: 18, place: "Kanpur", blood_group: "B+" }
+    ];
+
+    const copyStudents = [...students];
+    const newStudent = { name: "Neha", education: "MBA", age: 23, place: "Lucknow", blood_group: "O+" };
+    const updatedStudents = [...students, newStudent];
+
+    const names = students.map(s => s.name);
+    const info = students.map(s => `${s.name} (${s.education}) from ${s.place}`);
+
+    const totalAge = students.reduce((acc, s) => acc + s.age, 0);
+    const bloodCount = students.reduce((acc, s) => {
+      acc[s.blood_group] = (acc[s.blood_group] || 0) + 1;
+      return acc;
+    }, {});
+
+    const { name, education, place } = students[0];
+    const [first, second] = students;
+
+    const graduates = students.filter(s => s.education === "B.Tech" || s.education === "M.Tech");
+    const adults = students.filter(s => s.age >= 18);
+    const fromDelhi = students.filter(s => s.place === "Delhi");
+
+    const graduateNames = graduates.map(s => s.name);
+    const avgAge = graduates.reduce((acc, s) => acc + s.age, 0) / graduates.length;
+
+    console.log(copyStudents);
+    console.log(updatedStudents);
+    console.log(names);
+    console.log(info);
+    console.log(totalAge);
+    console.log(bloodCount);
+    console.log(name, education, place);
+    console.log(first.name, second.name);
+    console.log(graduates);
+    console.log(adults);
+    console.log(fromDelhi);
+    console.log(graduateNames);
+    console.log(avgAge);
+  </script>
+</body>
+</html>
