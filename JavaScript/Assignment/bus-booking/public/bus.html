@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Booking System</title>
+  <style>
+    p {
+      margin-left: 15px;
+      color: white;
+    }
+    h3 {
+      margin-left: 150px;
+    }
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    .header h1 {
+      color: white;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div style="background-color: blueviolet; border: 2px solid; height: auto; width: 400px; padding: 35px;">
+    <div class="header">
+      <img src="./bus.avif" alt="bus-icon">
+      <h1>Bus Booking System</h1>
+    </div>
+
+    <!-- Form connected to backend -->
+    <form action="/book" method="POST">
+      <h3>User Information</h3>
+      <p>User Name: <input type="text" name="username" required></p>
+      <p>User Age: <input type="number" name="age" required></p>
+      <p>Aadhar Number: <input type="text" name="aadhar" required></p>
+      <p>Select Your City: 
+        <select name="city" required>
+          <option>GZB</option>
+          <option>Delhi</option>
+          <option>Kanpur</option>
+          <option>Goa</option>
+          <option>Meerut</option>
+        </select>
+      </p>
+      <p>Select Your Travelling date: <input type="date" name="date" required></p>
+
+      <h3>Bus Information</h3>
+      <p>Select Your Bus Type:</p>
+      <p>AC Bus: 2000 <input type="radio" name="busType" value="AC" required></p>
+      <p>Non-AC Bus: 1000 <input type="radio" name="busType" value="Non-AC" required></p>
+      <p>Select No. Of Seats: <input type="number" name="seats" min="1" max="5" required></p>
+      <br>
+      <button type="submit">Click For Save</button>
+    </form>
+  </div>
+</body>
+</html>
