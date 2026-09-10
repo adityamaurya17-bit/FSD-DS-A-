@@ -1,0 +1,64 @@
+function f1() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("HI!!! from f1");
+      resolve();
+    }, 4000);
+  });
+}
+
+function f2() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("HI!!! from f2");
+      resolve();
+    }, 2000);
+  });
+}
+
+async function test() {
+  try {
+    await f1();
+    await f2();
+  }
+  catch (err) {
+    console.log("ERROR", err);
+  }
+}
+test();
+
+
+// function f1() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("HI!!! from f1");
+//       resolve();
+//     }, 4000);
+//   });
+// }
+
+// function f2() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       console.log("HI!!! from f2");
+//       resolve();
+//     }, 2000);
+//   });
+// }
+
+// // 🔹 NEW: async function wrapper
+// async function runTasks() {
+//   try {
+//     // 🔹 Instead of .then(), we use await
+//     await f1();
+//     await f2();
+
+//     console.log("All tasks done");
+//   } catch (err) {
+//     // 🔹 Instead of .catch(), we use try...catch
+//     console.log("ERROR", err);
+//   }
+// }
+
+// // 🔹 Call the async function
+// runTasks();
