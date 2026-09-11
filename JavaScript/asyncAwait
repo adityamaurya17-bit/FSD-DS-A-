@@ -46,19 +46,19 @@ test();
 //   });
 // }
 
-// // 🔹 NEW: async function wrapper
+// //  NEW: async function wrapper
 // async function runTasks() {
 //   try {
-//     // 🔹 Instead of .then(), we use await
+//     //  Instead of .then(), we use await
 //     await f1();
 //     await f2();
 
 //     console.log("All tasks done");
 //   } catch (err) {
-//     // 🔹 Instead of .catch(), we use try...catch
+//     //  Instead of .catch(), we use try...catch
 //     console.log("ERROR", err);
 //   }
 // }
 
-// // 🔹 Call the async function
+// //  Call the async function
 // runTasks();

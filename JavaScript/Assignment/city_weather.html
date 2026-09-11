@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Weather</title>
+  <style>
+    table {
+      width: 70%;
+      margin: auto;
+      padding: 10px;
+      font-size: 20px;
+      color: darkblue;
+      border: 2px solid darkblue;
+      text-align: center;
+    }
+    h1 {
+      color: green;
+      text-align: center;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+    }
+    select {
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Weather Report</h1>
+  <select id="citySelect">
+    <option value="">-- Select a City --</option>
+    <option value="Delhi">Delhi</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Bangalore">Bangalore</option>
+  </select>
+  <table>
+    <thead>
+      <tr>
+        <th>City</th>
+        <th>Temperature (°C)</th>
+        <th>Condition</th>
+        <th>Icon</th>
+      </tr>
+    </thead>
+    <tbody id="weatherData"></tbody>
+  </table>
+  <script>
+    const ele = document.getElementById("weatherData");
+    const citySelect = document.getElementById("citySelect");
+    const weatherData = {
+      "Delhi": { temp: 32, condition: "Sunny", icon: "https://openweathermap.org/img/wn/01d.png" },
+      "Mumbai": { temp: 29, condition: "Cloudy", icon: "https://openweathermap.org/img/wn/03d.png" },
+      "Bangalore": { temp: 25, condition: "Rainy", icon: "https://openweathermap.org/img/wn/09d.png" }
+    };
+    function showWeather(city) {
+      if (!city) {
+        ele.innerHTML = "";
+        return;
+      }
+      const data = weatherData[city];
+      ele.innerHTML = `
+        <tr>
+          <td>${city}</td>
+          <td>${data.temp}</td>
+          <td>${data.condition}</td>
+          <td><img src="${data.icon}" alt="weather icon"></td>
+        </tr>
+      `;
+    }
+    citySelect.addEventListener("change", (e) => {
+      showWeather(e.target.value);
+    });
+  </script>
+</body>
+</html>
