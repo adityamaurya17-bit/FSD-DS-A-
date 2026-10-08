@@ -1,14 +1,5 @@
-import React from 'react'
-import Student from './components/Header'
+import TodoList from "../TodoList.jsx";
 
-export const App = () => {
-  return (
-    <div>
-      <Header />
-      <Content />
-      <Footer />
-    </div>
-  )
+export default function App() {
+  return <TodoList />;
 }
-
-export default App
